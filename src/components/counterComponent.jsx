@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class CounterComponent extends Component {
 
     state = {
-        count : 1
+        value : this.props.value,
     }
 
     handleIncrement = () => {
@@ -25,8 +25,8 @@ class CounterComponent extends Component {
         return classes
     }
     getCount() {
-        const {count} = this.state;
-        return count === 0 ? "Zero" : count;
+        const {value} = this.state;
+        return value === 0 ? "Zero" : value;
     }
 }
 

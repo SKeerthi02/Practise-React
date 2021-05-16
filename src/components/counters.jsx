@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import CounterComponents from './counterComponent'
 import CounterComponent from "./counterComponent";
 
 class Counters extends Component {
@@ -16,7 +15,7 @@ class Counters extends Component {
     render() {
         return (
             <div>
-                {this.state.countersList.map(counter => <CounterComponent key = {counter.id}/>)}
+                {this.state.countersList.map(counter => <CounterComponent key = {counter.id} value={counter.value}/>)}
             </div>
         );
     }
