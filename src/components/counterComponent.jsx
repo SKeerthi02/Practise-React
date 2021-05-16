@@ -3,17 +3,23 @@ import React, {Component} from 'react';
 class CounterComponent extends Component {
 
     state = {
-        count : 0
+        count : 1
     }
     render() {
+
         return (
             <div>
-                <span className="badge badge-primary badge-warning m-2">{this.getCount()}</span>
-                <button className = "btn btn-primary m-2">Increment</button>
+                <span className={this.getBadgeClasses()}>{this.getCount()}</span>
+                <button className = "btn btn-secondary m-2">Increment</button>
             </div>
         );
     }
 
+    getBadgeClasses(){
+        let classes = "badge m-2 badge-"
+        classes += (this.state.count) === 0? "warning": "primary";
+        return classes
+    }
     getCount() {
         const {count} = this.state;
         return count === 0 ? "Zero" : count;
