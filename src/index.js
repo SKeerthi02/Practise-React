@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import CounterComponents from './components/counterComponent'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CounterComponents />
   </React.StrictMode>,
   document.getElementById('root')
 );
