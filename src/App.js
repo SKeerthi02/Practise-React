@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+// import './App.css';
 import NavigationBar from "./components/navigationBar";
 import Counters from "./components/counters";
 
@@ -27,6 +27,14 @@ class App extends Component {
     this.setState({counters});
   }
 
+  handleDecrement = (counter) =>{
+    const counters = [...this.state.countersList];
+    const index = counters.indexOf(counter);
+    // counters[index] = {...counter};
+    counters[index].value--;
+    this.setState({counters});
+  }
+
   handleReset = () => {
     const counters = this.state.countersList.map(counter => {counter.value = 0; return counter});
     this.setState({counters})
@@ -34,13 +42,14 @@ class App extends Component {
 
   render() {
     return (
-          <div className="App">
+          <div>
             <NavigationBar totalCounters = {this.state.countersList.filter(counter => counter.value > 0).length}/>
             <main className="container">
               <Counters
                   onReset={this.handleReset}
                   onIncrement={this.handleIncrement}
                   onDelete = {this.handleDelete}
+                  onDecrement = {this.handleDecrement}
                   counters = {this.state.countersList}/>
 
             </main>
